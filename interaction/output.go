@@ -3,6 +3,7 @@ package interaction
 import (
 	"fmt"
 	"os"
+
 	"github.com/common-nighthawk/go-figure"
 )
 
@@ -16,7 +17,7 @@ type RoundData struct {
 }
 
 func PrintGreeting() {
-	asciiFigure := figure.NewFigure("MONSTER SLAYER", "", true)
+	asciiFigure := figure.NewColorFigure("MONSTER SLAYER", "", "yellow", true)
 	asciiFigure.Print()
 	fmt.Println("MONSTER SLAYER")
 	fmt.Println("STARTING A NEW GAME....")
