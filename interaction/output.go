@@ -3,9 +3,8 @@ package interaction
 import (
 	"fmt"
 	"os"
-	
+	"github.com/common-nighthawk/go-figure"
 )
-
 
 type RoundData struct {
 	Action           string
@@ -17,6 +16,8 @@ type RoundData struct {
 }
 
 func PrintGreeting() {
+	asciiFigure := figure.NewFigure("MONSTER SLAYER", "", true)
+	asciiFigure.Print()
 	fmt.Println("MONSTER SLAYER")
 	fmt.Println("STARTING A NEW GAME....")
 	fmt.Println("GOOD LUCK")
@@ -54,18 +55,31 @@ func PrintRoundStatitics(roundData *RoundData) {
 
 func DeclareWinner(winner string) {
 	fmt.Println("----------------------------")
-	fmt.Println("GAME OVER!")
+	asciiFigure := figure.NewColorFigure("GAME OVER!", "", "red", true)
+	asciiFigure.Print()
 	fmt.Println("----------------------------")
 	fmt.Printf("%v won ! \n", winner)
 }
 
 func WriteLogFile(rounds *[]RoundData) {
-	file, err := os.Create("gamelog.txt")
+
+	//To make an executable
+	// exPath, err := os.Executable()
+
+	// if err != nil {
+	// 	fmt.Println("Saving a log file failed. eciting")
+	// 	return
+	// }
+
+	// exPath = filepath.Dir(exPath)
+
+	// file, err := os.Create(exPath + "/gamelog.txt")
+	file, err := os.Create("gamelog.txt") // Require For "go run"
 
 	if err != nil {
 		fmt.Println("Saving a log file failes. eciting")
 		return
-		
+
 	}
 
 	for index, value := range *rounds {
