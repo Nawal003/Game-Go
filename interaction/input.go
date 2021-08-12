@@ -26,6 +26,7 @@ func GetPlayerChoice(specialAttackIsAvailable bool) string {
 
 }
 
+
 func getPlayerInput() (string, error) {
 	fmt.Print("Your choice: ")
 	userInput, err := reader.ReadString('\n')

@@ -52,8 +52,6 @@ func AttackPlayer() int {
 
 	return dmgValue
 
-
-
 }
 
 func GetHealthAmounts() (int, int)  {
